@@ -14,7 +14,8 @@ a { color:#58a6ff; }
 <div id="news"></div>
 
 <script>
-fetch('https://iot-news-backend.up.railway.app/api/news')
+fetch('https://iot-news-backend-v2-production.up.railway.app/api/news')
+
 .then(res => res.json())
 .then(data => {
   const div = document.getElementById('news');

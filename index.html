@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IoT Analyst Dashboard</title>
+<meta charset="UTF-8">
+<style>
+body { background:#0e1117; color:#fff; font-family:Arial; padding:20px; }
+.card { background:#161b22; padding:16px; border-radius:12px; margin:10px 0; }
+a { color:#58a6ff; }
+</style>
+</head>
+<body>
+<h1>IoT Analyst News Dashboard</h1>
+<div id="news"></div>
+
+<script>
+fetch('http://localhost:4000/api/news')
+.then(res => res.json())
+.then(data => {
+  const div = document.getElementById('news');
+  data.forEach(n => {
+    div.innerHTML += `<div class="card">
+      <h3>${n.title}</h3>
+      <p>${n.summary}</p>
+      <a href="${n.url}" target="_blank">Read more</a>
+    </div>`;
+  });
+});
+</script>
+</body>
+</html>
